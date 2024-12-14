@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Input from "./Components/Input";
 import Home from "./Screens/Home";
 import Navbar from "./Components/Navbar";
+import Lead from "./Screens/Lead";
 
 function App() {
   const [data, setData] = useState("");
@@ -11,13 +12,8 @@ function App() {
   }, [data]);
   return (
     <>
-    <Navbar/>
-      {/* <Input
-        name={"chandan"}
-        width={"40"}
-        onChange={(e) => setData(e.target.value)}
-      />
-       <Home/> */}
+      <Navbar />
+      <Lead />
     </>
   );
 }

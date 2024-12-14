@@ -5,7 +5,7 @@ const Input = ({ name, width, onChange }) => {
         <input
           type="text"
           id={name}
-          className={`peer border border-green-500 bg-transparent placeholder-transparent rounded ${
+          className={`peer h-10 border border-gray-500 bg-transparent placeholder-transparent rounded ${
             width ? `w-${width}` : "w-full"
           }`}
           placeholder={name}

@@ -1,22 +1,22 @@
-export default function Dropdown(){
-    return (
-        <div>
-  <label htmlFor="HeadlineAct" className="block text-sm font-medium text-gray-900"> Headliner </label>
+export default function Dropdown({ data, name, onChange, value }) {
+  return (
+    <div>
+      <label htmlFor={name} className="block text-sm font-medium text-gray-900">
+        {name}
+      </label>
 
-  <select
-    name="HeadlineAct"
-    id="HeadlineAct"
-    className="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm"
-  >
-    <option value="">Please select</option>
-    <option value="JM">John Mayer</option>
-    <option value="SRV">Stevie Ray Vaughn</option>
-    <option value="JH">Jimi Hendrix</option>
-    <option value="BBK">B.B King</option>
-    <option value="AK">Albert King</option>
-    <option value="BG">Buddy Guy</option>
-    <option value="EC">Eric Clapton</option>
-  </select>
-</div>
-    )
+      <select
+        name={name}
+        onChange={onChange}
+        value={value}
+        id={name}
+        className="mt-1.5 w-full h-10 rounded-lg border border-gray-500 text-gray-700 sm:text-sm"
+      >
+        <option value="Please select">Please select</option>
+        {data.map((ele) => (
+          <option value={ele}>{ele}</option>
+        ))}
+      </select>
+    </div>
+  );
 }
