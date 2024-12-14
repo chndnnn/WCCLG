@@ -1,19 +1,22 @@
-import { useEffect, useState } from "react";
-import Input from "./Components/Input";
-import Home from "./Screens/Home";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Lead from "./Screens/Lead";
 
-function App() {
-  const [data, setData] = useState("");
+let router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Navbar />,
+  },
+  {
+    path: "/lead",
+    element: <Lead />,
+  },
+]);
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+function App() {
   return (
     <>
-      <Navbar />
-      <Lead />
+      <RouterProvider router={router} />
     </>
   );
 }
