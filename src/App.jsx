@@ -1,19 +1,27 @@
-import { useEffect, useState } from "react";
-import Input from "./Components/Input";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Navbar from "./Components/Navbar";
+import Lead from "./Screens/Lead";
+import Home from "./Screens/Home";
+
+let router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Navbar />,
+  },
+  {
+    path: "/lead",
+    element: <Lead />,
+  },
+  {
+    path: "/home",
+    element: <Home />,
+  },
+]);
 
 function App() {
-  const [data, setData] = useState("");
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
   return (
     <>
-      <Input
-        name={"chandan"}
-        width={"40"}
-        onChange={(e) => setData(e.target.value)}
-      />
+      <RouterProvider router={router} />
     </>
   );
 }
