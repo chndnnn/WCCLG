@@ -8,23 +8,23 @@ export default function Home() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        setLoading(true); // Set loading to true when the request starts
+        setLoading(true);
         fetch('https://dummyjson.com/users')
             .then((res) => res.json())
             .then((response) => {
-                setData(response.users); // Update the data
-                console.log(Object.keys(response.users[0])); // Log the keys of the first user object
+                setData(response.users);
+                console.log(Object.keys(response.users[0]));
             })
             .catch((error) => {
-                setError(error); // Set the error state
+                setError(error);
                 console.error('Error fetching data:', error);
             })
             .finally(() => {
-                setLoading(false); // Set loading to false when the request completes
+                setLoading(false);
             });
-    }, []); // Empty dependency array so the API call runs only once on component mount
+    }, []);
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <p className=" fixed inset-0 bg-black bg-opacity-20 flex items-center justify-center align-middle"><img  src="/pattern-15508_256.gif" alt="" /></p>;
     if (error) return <p>Error: {error.message}</p>;
 
     return (
