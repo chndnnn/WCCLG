@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Lead from "./Screens/Lead";
+import Home from "./Screens/Home";
 
 let router = createBrowserRouter([
   {
@@ -10,6 +11,10 @@ let router = createBrowserRouter([
   {
     path: "/lead",
     element: <Lead />,
+  },
+  {
+    path: "/home",
+    element: <Home />,
   },
 ]);
 
