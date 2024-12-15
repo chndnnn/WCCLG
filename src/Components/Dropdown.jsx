@@ -13,7 +13,7 @@ export default function Dropdown({ data, name, onChange, value }) {
         className="mt-1.5 w-full h-10 rounded-lg border border-gray-500 text-gray-700 sm:text-sm"
       >
         <option value="Please select">Please select</option>
-        {data.map((ele) => (
+        {data?.map((ele) => (
           <option value={ele}>{ele}</option>
         ))}
       </select>

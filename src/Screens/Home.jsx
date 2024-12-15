@@ -1,36 +1,34 @@
 import { useState, useEffect } from "react";
 import Table from "../Components/Table";
 import FormScreen from "./FormScreen";
+import { fetchTableData } from "../Helper/Api";
 
 export default function Home() {
-    const [loading, setLoading] = useState(false);
-    const [data, setData] = useState([]);
-    const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
 
-    useEffect(() => {
-        setLoading(true);
-        fetch('https://dummyjson.com/users')
-            .then((res) => res.json())
-            .then((response) => {
-                setData(response.users);
-                console.log(Object.keys(response.users[0]));
-            })
-            .catch((error) => {
-                setError(error);
-                console.error('Error fetching data:', error);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    }, []);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-    if (loading) return <p className=" fixed inset-0 bg-black bg-opacity-20 flex items-center justify-center align-middle"><img  src="/pattern-15508_256.gif" alt="" /></p>;
-    if (error) return <p>Error: {error.message}</p>;
+  async function fetchData() {
+    let data = await fetchTableData();
+    setData(data);
+  }
 
+  if (loading)
     return (
-        <>
-            <FormScreen />
-            <Table data={data} />
-        </>
+      <p className=" fixed inset-0 bg-black bg-opacity-20 flex items-center justify-center align-middle">
+        <img src="/pattern-15508_256.gif" alt="" />
+      </p>
     );
+  if (error) return <p>Error: {error.message}</p>;
+
+  return (
+    <>
+      <FormScreen />
+      <Table data={data} />
+    </>
+  );
 }
