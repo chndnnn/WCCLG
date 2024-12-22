@@ -51,7 +51,7 @@ export default function Table(props) {
           </button>
         </div>
       </div>
-      <div className="overflow-x-auto overflow-y-auto border h-[90%]">
+      <div className={`overflow-x-auto overflow-y-auto border`} style={{height:`${props.height}px`}}>
         <table className="min-w-full divide-y divide-gray-300 bg-white text-sm border border-gray-300">
           <thead className="sticky top-0 z-10 bg-neutral-300">
             <tr>

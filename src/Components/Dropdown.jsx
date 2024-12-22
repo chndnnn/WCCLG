@@ -1,4 +1,4 @@
-export default function Dropdown({ data, name, onChange, value }) {
+export default function Dropdown({ data, name, onChange, value,width }) {
   return (
     <div>
       <label htmlFor={name} className="block text-sm font-medium text-gray-900">
@@ -10,7 +10,7 @@ export default function Dropdown({ data, name, onChange, value }) {
         onChange={onChange}
         value={value}
         id={name}
-        className="mt-1.5 w-full h-10 rounded-lg border border-gray-500 text-gray-700 sm:text-sm"
+        className={`mt-1.5 ${width ? `w-${width}` : 'w-full'} h-10 rounded-lg border border-gray-500 text-gray-700 sm:text-sm`}
       >
         <option value="Please select">Please select</option>
         {data?.map((ele, i) => (
