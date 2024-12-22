@@ -1,15 +1,29 @@
 import { IoMdAdd } from "react-icons/io";
 import { AiFillEdit } from "react-icons/ai";
+import TablePopup from "./TablePopup";
+import { useEffect, useState } from "react";
 
 export default function Table(props) {
+  const [popup, setpopup] = useState(false);
+  const [tableHeader, setTableHeader] = useState();
+
+  useEffect(() => {
+    if (props?.data?.length > 0) {
+      let data = Object.keys(props.data[0]).map((ele) => {
+        return ele;
+      });
+      setTableHeader(data);
+    }
+  }, [props.data[0]]);
+
   return (
     <div className="p-2 border h-full">
       <div>
         <div className="flex gap-1">
-          <span className="bg-black rounded cursor-pointer">
-            <IoMdAdd className="text-white" />
+          <span className="bg-black rounded cursor-pointer hover:bg-neutral-700">
+            <IoMdAdd className="text-white" onClick={() => setpopup(true)} />
           </span>
-          <span className="bg-black rounded cursor-pointer">
+          <span className="bg-black rounded cursor-pointer hover:bg-neutral-700">
             <AiFillEdit className="text-white" />
           </span>
         </div>
@@ -25,8 +39,8 @@ export default function Table(props) {
                   className="size-3 rounded border-gray-300"
                 />
               </th>
-              {props?.data?.length > 0 &&
-                Object.keys(props.data[0]).map((key, index) => (
+              {tableHeader?.length > 0 &&
+                tableHeader.map((key, index) => (
                   <th
                     key={`header-${index}`}
                     className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 border border-gray-300"
@@ -59,6 +73,11 @@ export default function Table(props) {
           </tbody>
         </table>
       </div>
+      {popup && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
+          <TablePopup data={tableHeader} onClose={() => setpopup(false)} />
+        </div>
+      )}
     </div>
   );
 }
