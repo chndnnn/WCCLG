@@ -24,10 +24,6 @@ const LeadDetails = () => {
     //fetchData();
   }, []);
 
-  useEffect(() => {
-    console.log(tableData);
-  }, [tableData]);
-
   async function fetchData() {
     let data = await fetchTableData();
     setTableData(data);
@@ -35,10 +31,10 @@ const LeadDetails = () => {
   return (
     <div className="w-full  gap-3 md:flex h-80 ">
       <div className="md:w-[60%]  border border-black ">
-        <Table data={tableData} />
+        <Table data={tableData} name={"leadDetails"} />
       </div>
       <div className="md:w-[39%] border border-black  ">
-        <Table data={tableData} />
+        <Table data={tableData} name={"compDetails"} />
       </div>
     </div>
   );
