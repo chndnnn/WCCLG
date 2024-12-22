@@ -18,7 +18,7 @@ const Lead = () => {
       </div>
       <div className="border p-2 ">
         <div
-          className="bg-blue-500 px-2 flex items-center text-white cursor-pointer"
+          className="bg-blue-500 px-2 flex items-center rounded mb-1 text-white cursor-pointer"
           onClick={() => setHide((prev) => !prev)}
         >
           Create Lead
@@ -27,7 +27,7 @@ const Lead = () => {
           </span>
         </div>
         {!hide && (
-          <div className="p-5 border border-blue-500 shadow-lg">
+          <div className="p-5 border rounded border-blue-500 shadow-lg">
             <div className=" border rounded w-[95%] m-auto">
               <div className="border bg-blue-200 rounded px-2">
                 lead Details
@@ -74,7 +74,7 @@ const Lead = () => {
           </div>
         )}
         <div className="mt-2">
-          <div className="bg-blue-500 px-2 text-white">
+          <div className="bg-blue-500 px-2 mb-1 rounded text-white">
             Customer contact and Competitor details
           </div>
           <LeadDetails />

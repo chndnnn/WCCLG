@@ -30,10 +30,10 @@ const LeadDetails = () => {
   }
   return (
     <div className="w-full  gap-3 md:flex h-80 ">
-      <div className="md:w-[60%]  border border-black ">
+      <div className="md:w-[60%] rounded border border-black ">
         <Table data={tableData} name={"leadDetails"} />
       </div>
-      <div className="md:w-[39%] border border-black  ">
+      <div className="md:w-[39%] border rounded border-black  ">
         <Table data={tableData} name={"compDetails"} />
       </div>
     </div>
