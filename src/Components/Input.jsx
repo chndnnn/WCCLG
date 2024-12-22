@@ -1,4 +1,4 @@
-const Input = ({ name, width, onChange }) => {
+const Input = ({ name, width, onChange, value1 }) => {
   return (
     <>
       <label htmlFor={name} className="relative block rounded-md">
@@ -9,6 +9,7 @@ const Input = ({ name, width, onChange }) => {
             width ? `w-${width}` : "w-full"
           }`}
           placeholder={name}
+          value={value1}
           onChange={onChange}
         />
 
