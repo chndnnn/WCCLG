@@ -47,7 +47,6 @@ function Login({setIsLoggedIn, setLoginPayload}) {
           showPopUp(true);
         });
     } else {
-      // OTP submission logic (after OTP)
       const otpPayload = {
         enteredOtp: otpEnteredVal,
         generatedOtp: generatedOtp,
@@ -116,23 +115,20 @@ function Login({setIsLoggedIn, setLoginPayload}) {
 
   return (
   <div className="flex items-center  justify-center">
-      <div className=" border rounded border-purple-500 w-1/2">
+      <div className=" border rounded  shadow-md
+       w-1/2">
       <form className=" rounded-lg p-9">
-        {/* Email */}
         <div>
           <label style={labelStyle} htmlFor="email">Email</label>
           <input
             id="email"
             type="text"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)} placeholder="Email"
              style={inputStyle}
             autoFocus
           />
         </div>
-
-        {/* Password */}
         <div>
           <label style={labelStyle} htmlFor="password">Password</label>
           <input
@@ -146,8 +142,6 @@ function Login({setIsLoggedIn, setLoginPayload}) {
         </div>
 
         {loading && <div>Loading...</div>}
-
-        {/* OTP Field */}
         {otp && (
           <div>
             <label style={labelStyle} htmlFor="otp">OTP</label>
@@ -161,10 +155,12 @@ function Login({setIsLoggedIn, setLoginPayload}) {
           </div>
         )}
 
-        <button className = "bg-gradient-to-b from-purple-800 to-purple-600 p-2 rounded-lg text-white px-7" onClick={handleLogin} type="submit" disabled={!validateForm()}>
+       <div className="flex flex-row align-baseline gap-5 items-baseline">
+       <button className = "bg-[#8BC34A]   p-2 rounded-lg text-white px-7" onClick={handleLogin} type="submit" disabled={!validateForm()}>
           {otp ? "Login" : "Request For OTP"}
         </button>
-        <h3 className="font-serif">New to our platform ? <a href="/signUp">Sign Up Here</a></h3>
+        <h3 className="font-serif"><a href="/signUp" className="underline decoration-blue-500 decoration-2 hover:decoration-yellow-300">Sign Up Here</a></h3>
+       </div>
       </form>
 
       {setPopUp && <InvalidCreds type="Error" desc="Invalid Creds Entered" onClose={showPopUp}/>}

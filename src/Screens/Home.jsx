@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Table from "../Components/Table";
 import FormScreen from "./FormScreen";
 import { fetchTableData } from "../Helper/Api";
+import Loader from "../Components/Loader";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -13,22 +14,18 @@ export default function Home() {
   }, []);
 
   async function fetchData() {
+    setLoading(true);
     let data = await fetchTableData();
     setData(data);
+    setLoading(false);
   }
 
-  if (loading)
-    return (
-      <p className=" fixed inset-0 bg-black bg-opacity-20 flex items-center justify-center align-middle">
-        <img src="/pattern-15508_256.gif" alt="" />
-      </p>
-    );
   if (error) return <p>Error: {error.message}</p>;
 
   return (
     <>
       <FormScreen />
-      <Table data={data} />
+   <Table height={225} data={data} loader={loading} />
     </>
   );
 }
