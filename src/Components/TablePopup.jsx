@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Input from "./Input";
 
 const TablePopup = ({ onClose, data, editedData, onChange }) => {
+  let debounceTimer = useRef(null);
   const [data1, setData] = useState();
 
   useEffect(() => {
@@ -9,13 +10,23 @@ const TablePopup = ({ onClose, data, editedData, onChange }) => {
   }, [editedData]);
 
   function onInputChage(e, ele) {
-    setData((prev) => ({ ...prev, [ele]: e.target.value }));
+    debounceTimer = setTimeout(() => {
+      setData((prev) => ({ ...prev, [ele]: e.target.value }));
+    }, 1000);
+
+    return () => {
+      clearTimeout(debounceTimer.current);
+    };
   }
 
   function onSaveClick() {
     console.log(data1);
     onClose();
   }
+
+  useEffect(() => {
+    console.log("hii");
+  }, [data1]);
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
@@ -24,6 +35,7 @@ const TablePopup = ({ onClose, data, editedData, onChange }) => {
           {data?.map((ele, i) => {
             return (
               <Input
+                key={i}
                 onChange={(e) => onInputChage(e, ele)}
                 name={ele}
                 value1={data1 && data1[ele]}
