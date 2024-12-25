@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Lead from "./Screens/Lead";
 import Home from "./Screens/Home";
+import Qualifying from "./Screens/Qulifying";
 
 let router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ let router = createBrowserRouter([
   {
     path: "/home",
     element: <Home />,
+  },
+  {
+    path: "/qualifying",
+    element: <Qualifying />,
   },
 ]);
 

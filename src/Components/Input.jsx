@@ -1,21 +1,25 @@
-const Input = ({ name, width, onChange,margin ,value}) => {
+const Input = ({ name, width, onChange, margin, value, required }) => {
   return (
     <>
-    <label htmlFor={name} className="relative block rounded-md" style={{ marginTop: `${margin}px` }}>
-      <input
-        type="text"
-        id={name}
-        className={`peer h-10 p-2 border border-gray-500 bg-transparent placeholder-transparent rounded ${
-          width ? `w-${width}` : "w-full"
-        }`}
-        placeholder={name}
-        onChange={onChange}
-      />
-      <span className="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white p-0.5 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs">
-        {name}
-      </span>
-    </label>
-  </>
+      <label
+        htmlFor={name}
+        className="relative block rounded-md"
+        style={{ marginTop: `${margin}px` }}
+      >
+        <input
+          type="text"
+          id={name}
+          className={`peer h-10 p-2 border border-gray-500 bg-transparent placeholder-transparent rounded ${
+            width ? `w-${width}` : "w-full"
+          }`}
+          placeholder={"name"}
+          onChange={onChange}
+        />
+        <span className="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white p-0.5 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs">
+          {required ? name + " * " : name}
+        </span>
+      </label>
+    </>
   );
 };
 
