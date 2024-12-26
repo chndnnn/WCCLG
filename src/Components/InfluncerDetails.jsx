@@ -29,7 +29,7 @@ const InfluncerDetails = () => {
     setTableData(data);
   }
   return (
-    <div className="w-full  gap-3 md:flex h-80 ">
+    <div className="w-full  gap-3 md:flex h-full">
       <div className="md:w-[100%]  border rounded border-black ">
         <Table data={tableData} name={"leadDetails"} />
       </div>

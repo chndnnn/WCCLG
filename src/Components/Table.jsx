@@ -30,7 +30,7 @@ export default function Table(props) {
   }
 
   return (
-    <div className="p-2 border h-full">
+    <div className="p-4 border  h-full">
       <div>
         <div className="flex gap-1 mb-1">
           <span className="bg-black rounded cursor-pointer hover:bg-neutral-700">
