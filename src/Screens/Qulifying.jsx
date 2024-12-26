@@ -66,7 +66,9 @@ const Qualifying = () => {
           <div className="bg-blue-500 px-2 mb-1 rounded text-white">
             influncer details
           </div>
-          <InfluncerDetails />
+          <div className="h-80">
+            <InfluncerDetails />
+          </div>
         </div>
       </div>
     </div>

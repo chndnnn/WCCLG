@@ -9,6 +9,7 @@ const Input = ({ name, width, onChange, margin, value, required }) => {
         <input
           type="text"
           id={name}
+          value={value}
           className={`peer h-10 p-2 border border-gray-500 bg-transparent placeholder-transparent rounded ${
             width ? `w-${width}` : "w-full"
           }`}

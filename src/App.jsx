@@ -3,6 +3,7 @@ import Navbar from "./Components/Navbar";
 import Lead from "./Screens/Lead";
 import Home from "./Screens/Home";
 import Qualifying from "./Screens/Qulifying";
+import ShowingAccount from "./Screens/ShowingAccount";
 
 let router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ let router = createBrowserRouter([
   {
     path: "/qualifying",
     element: <Qualifying />,
+  },
+  {
+    path: "/showingAccount",
+    element: <ShowingAccount />,
   },
 ]);
 
