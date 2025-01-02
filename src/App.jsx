@@ -4,6 +4,7 @@ import Lead from "./Screens/Lead";
 import Home from "./Screens/Home";
 import Qualifying from "./Screens/Qulifying";
 import ShowingAccount from "./Screens/ShowingAccount";
+import Enquiry from "./Screens/Enquiry";
 
 let router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ let router = createBrowserRouter([
   {
     path: "/showingAccount",
     element: <ShowingAccount />,
+  },
+  {
+    path: "/enquiry",
+    element: <Enquiry />,
   },
 ]);
 
