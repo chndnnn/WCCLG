@@ -17,6 +17,14 @@ const EnquiryDetails = () => {
         <Input name={"Sub vertical"} required={true} />
         <Input name={"Segment"} />
         <Input name={"Sub Segment"} />
+        <Input name={"Approx Value(rs min)"} />
+        <Input name={"Closure year"} />
+        <Input name={"Exp closure PC"} />
+        <Input name={"Exp closure wk"} />
+        <Input name={"total sqft area"} />
+        <Input name={"Seat no"} />
+        <Input name={"Product manager"} />
+        <Input name={"order Mode"} />
       </div>
     </div>
   );
