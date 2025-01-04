@@ -1,4 +1,4 @@
-const Input = ({ name, width, onChange, margin, value, required }) => {
+const Input = ({ name, width, onChange, margin, value, required, type }) => {
   return (
     <>
       <label
@@ -7,7 +7,7 @@ const Input = ({ name, width, onChange, margin, value, required }) => {
         style={{ marginTop: `${margin}px` }}
       >
         <input
-          type="text"
+          type={`${type ? type : "text"}`}
           id={name}
           value={value}
           className={`peer h-10 p-2 border border-gray-500 bg-transparent placeholder-transparent rounded ${
