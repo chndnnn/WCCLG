@@ -1,3 +1,4 @@
+import CustomDatePicker from "./CustomDatePicker";
 import Input from "./Input";
 
 const EnquiryDetails = () => {
@@ -22,9 +23,10 @@ const EnquiryDetails = () => {
         <Input name={"Exp closure PC"} />
         <Input name={"Exp closure wk"} />
         <Input name={"total sqft area"} />
-        <Input name={"Seat no"} />
+        <Input type={"number"} name={"Seat no"} />
         <Input name={"Product manager"} />
         <Input name={"order Mode"} />
+        <CustomDatePicker />
       </div>
     </div>
   );
