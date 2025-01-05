@@ -25,8 +25,8 @@ const EnquiryDetails = () => {
         <Input name={"total sqft area"} />
         <Input type={"number"} name={"Seat no"} />
         <Input name={"Product manager"} />
+        <CustomDatePicker label={"delivery Date"} />
         <Input name={"order Mode"} />
-        <CustomDatePicker />
       </div>
     </div>
   );
